@@ -1,16 +1,20 @@
 <template>
   <div>
-    <!-- Your task list code goes here -->
+    <h2>Task List</h2>
+    <ul>
+      <li v-for="(task, index) in tasks" :key="index">{{ task }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
   name: "TaskList",
-  // Your Vue.js code goes here
+  props: {
+    tasks: {
+      type: Array,
+      required: true,
+    },
+  },
 };
 </script>
-
-<style scoped>
-/* Your CSS styles go here */
-</style>
