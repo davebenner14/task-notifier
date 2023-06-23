@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center h-1/2">
+  <div class="flex justify-center mt-10">
     <form @submit.prevent="addTask" class="flex">
       <input
         v-model="newTask"

@@ -1,6 +1,10 @@
 <template>
-  <div id="app" class="flex flex-col items-center justify-center h-screen">
-    <div class="max-w-lg w-full mx-auto">
+  <div id="app" class="flex flex-col items-center bg-gray-100 min-h-screen">
+    <AppNavbar />
+    <div class="max-w-lg w-full mx-auto mt-64">
+      <h1 class="text-5xl font-bold text-center mb-10 text-blue-600">
+        Your Task Notifier
+      </h1>
       <TaskForm @task-added="addTask" />
       <TaskList
         :tasks="tasks"
@@ -15,12 +19,14 @@
 <script>
 import TaskForm from "./components/TaskForm.vue";
 import TaskList from "./components/TaskList.vue";
+import AppNavbar from "./components/AppNavbar.vue"; // The import statement now matches the filename
 
 export default {
   name: "App",
   components: {
     TaskForm,
     TaskList,
+    AppNavbar, 
   },
   data() {
     return {
