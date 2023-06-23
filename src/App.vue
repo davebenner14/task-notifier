@@ -1,7 +1,14 @@
 <template>
-  <div id="app">
-    <TaskForm @task-added="addTask" />
-    <TaskList :tasks="tasks" />
+  <div id="app" class="flex flex-col items-center justify-center h-screen">
+    <div class="max-w-lg w-full mx-auto">
+      <TaskForm @task-added="addTask" />
+      <TaskList
+        :tasks="tasks"
+        class="mt-2"
+        @edit-task="editTask"
+        @delete-task="deleteTask"
+      />
+    </div>
   </div>
 </template>
 
@@ -23,6 +30,12 @@ export default {
   methods: {
     addTask(task) {
       this.tasks.push(task);
+    },
+    editTask(index, newTask) {
+      this.tasks[index] = newTask;
+    },
+    deleteTask(index) {
+      this.tasks.splice(index, 1);
     },
   },
 };

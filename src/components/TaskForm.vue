@@ -1,10 +1,18 @@
 <template>
-  <div>
-    <h2>Add a New Task</h2>
-    <form @submit.prevent="addTask">
-      <label for="task-name">Task Name:</label>
-      <input id="task-name" v-model="newTaskName" type="text" required />
-      <button type="submit">Add Task</button>
+  <div class="flex items-center justify-center h-1/2">
+    <form @submit.prevent="addTask" class="flex">
+      <input
+        v-model="newTask"
+        class="flex-initial border rounded-lg py-4 px-3 mr-4 shadow appearance-none leading-tight focus:outline-none focus:shadow-outline text-xl font-poppins"
+        type="text"
+        placeholder="Enter a new task"
+      />
+      <button
+        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-400 text-white font-bold flex-none text-xl font-poppins"
+        type="submit"
+      >
+        Add Task
+      </button>
     </form>
   </div>
 </template>
@@ -14,13 +22,15 @@ export default {
   name: "TaskForm",
   data() {
     return {
-      newTaskName: "",
+      newTask: "",
     };
   },
   methods: {
     addTask() {
-      this.$emit("task-added", this.newTaskName);
-      this.newTaskName = "";
+      if (this.newTask !== "") {
+        this.$emit("task-added", this.newTask);
+        this.newTask = "";
+      }
     },
   },
 };
