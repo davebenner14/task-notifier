@@ -1,3 +1,14 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.dark {
+    --bg-color: #1f2937;
+    --text-color: #f9fafb;
+  }
+  
+  .dark body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
